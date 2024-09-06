@@ -1,0 +1,28 @@
+<header>
+  <a (click)="showAll()">Show All</a>
+  <a (click)="showBio()">Show Bio</a>
+  <a (click)="showQuotes()">Show Quotes</a>
+  <a (click)="showLinks()">Show Links</a>
+</header>
+
+<main>
+  <div class="article">
+    <section *ngIf="isSectionVisible('quotes')" class="info">
+      <h1>{{ title }}</h1>
+      <img src="portrait.jpg" class="portrait">
+      <div class="quotes">
+        <app-quote-list></app-quote-list>
+      </div>
+    </section>
+
+    <section *ngIf="isSectionVisible('bio')" class="bio">
+      <app-bio></app-bio>
+    </section>
+  </div>
+
+  <div class="references">
+    <section *ngIf="isSectionVisible('links')" class="content">
+      <app-link-list></app-link-list>
+    </section>
+  </div>
+</main>
